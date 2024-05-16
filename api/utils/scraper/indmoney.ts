@@ -9,6 +9,10 @@ const headers = {
   Connection: "keep-alive",
   Pragma: "no-cache",
   Referer: "https://www.indmoney.com/",
+  "Sec-Ch-Ua":
+    '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+  "Sec-Ch-Ua-Mobile": "?0",
+  "Sec-Ch-Ua-Platform": '"macOS"',
 };
 
 const scraper = cloudscraper.defaults({ headers: headers });
