@@ -43,17 +43,13 @@ const getIndexSummary = async function ($: any) {
     const price = anchorElement.find("p.font-medium.text-base")?.text()?.trim();
     const changeElement = anchorElement.find("p.font-normal");
     const changeSpan = changeElement.find("span");
-    const changeValue = changeSpan.text().split("(")[0].trim(); // "34.4"
-    const changePercentage = changeSpan
-      .text()
-      .split("(")[1]
-      .split(")")[0]
-      .trim();
+    const split = changeSpan?.text()?.split("("); // "34.4"
+    const changePercentage = split[1]?.split(")")?.[0]?.trim();
     data.push({
       title,
       link: "https://www.indmoney.com" + href,
       price,
-      changeValue,
+      changeValue: split[0],
       changePercentage,
     });
   });
@@ -100,9 +96,9 @@ const getStockSummary = async function ($: any) {
     // Extract change percentage (including the ▲ or ▼ symbol)
     const changePercentage = changeElement.text().trim();
 
-    console.log("Title:", title);
-    console.log("Price:", price);
-    console.log("Image URL:", imageURL);
-    console.log("Change:", changePercentage);
+    // console.log("Title:", title);
+    // console.log("Price:", price);
+    // console.log("Image URL:", imageURL);
+    // console.log("Change:", changePercentage);
   });
 };
